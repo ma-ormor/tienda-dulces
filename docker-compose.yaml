@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  rest-api:
+    build: .
+    ports:
+      - 80:8080
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_DATABASE: tienda-dulces
+      
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./rest-api/tienda-dulces.sql:/docker-entrypoint-initdb.d/tienda-dulces.sql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: tienda-dulces
