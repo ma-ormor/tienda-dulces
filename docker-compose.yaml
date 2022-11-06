@@ -8,16 +8,16 @@ services:
     depends_on:
       - mysql
     environment:
-      MYSQL_DATABASE: tienda-dulces
-      
+      spring.datasource.url: jdbc:mysql://192.168.100.50:3306/tienda_dulces
+      spring.datasource.password: pass
 
   mysql:
     image: mysql:5.7
     volumes:
       - ./db:/var/lib/mysql
-      - ./rest-api/tienda-dulces.sql:/docker-entrypoint-initdb.d/tienda-dulces.sql
+      - ./tienda_dulces.sql:/docker-entrypoint-initdb.d/tienda_dulces.sql
     ports:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: tienda-dulces
+      MYSQL_DATABASE: tienda_dulces
