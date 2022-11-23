@@ -3,7 +3,7 @@ version: "3.7"
 services:
   rest-api:
     # build: .
-    image: maormor/tienda-dulces:v1
+    image: maormor/tienda-dulces:v2
     ports:
       - 80:8080
     depends_on:
