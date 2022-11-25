@@ -12,7 +12,7 @@ services:
       spring.datasource.url: jdbc:mysql://mysql:3306/tienda_dulces
       spring.datasource.password: pass
       
-  carrito-compras:
+  carrito-compras: # Pendiente
     image: maormor/carrito-compras:v1
     ports:
       - 8081:80
