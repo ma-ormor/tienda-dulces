@@ -1,6 +1,5 @@
 <?php 
   class Database {
-    // DB Params
     private $host;
     private $db_name = 'tienda_dulces';
     private $username = 'root';
@@ -8,10 +7,13 @@
     private $conn;
 
     function __construct(){
-      if(($this->host = getenv("HOST")) !== false) 
-        $this->host = 'localhost';
-      if(($this->password = getenv("DB_PASS")) !== false) 
+      if(!isset($_ENV['DB_HOST']))
+        $this->host = 'localhost:3306';
+      else $this->host = $_ENV['DB_HOST'].':3306';
+
+      if(!isset($_ENV['DB_PASSWORD'])) 
         $this->password = '';
+      else $this->password = $_ENV['DB_PASSWORD'];
     }
 
     // DB Connect

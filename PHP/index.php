@@ -9,11 +9,14 @@
         <div class="container-fluid">
             <?php
                 echo "<h1>Carrito de compras</h1>";
-            
-                if(($host = getenv("HOST")) !== false) 
-                    $host = 'localhost';
-                if(($password = getenv("DB_PASS")) !== false) 
-                    $password = ''; 
+
+                if(!isset($_ENV['DB_HOST']))
+                  $host = 'localhost:3306';
+                else $host = $_ENV['DB_HOST'].':3306';
+
+                if(!isset($_ENV['DB_PASSWORD'])) 
+                  $password = '';
+                else $password = $_ENV['DB_PASSWORD'];
 
                 $conn = mysqli_connect($host, 'root', $password, "tienda_dulces");
 
