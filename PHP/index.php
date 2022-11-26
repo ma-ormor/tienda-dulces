@@ -9,8 +9,13 @@
         <div class="container-fluid">
             <?php
                 echo "<h1>Carrito de compras</h1>";
+            
+                if(($host = getenv("HOST")) !== false) 
+                    $host = 'localhost';
+                if(($password = getenv("DB_PASS")) !== false) 
+                    $password = '';
 
-                $conn = mysqli_connect('localhost', 'root', '', "tienda_dulces");
+                $conn = mysqli_connect($host, 'root', $password, "tienda_dulces");
 
                 $query = 'SELECT * From carrito_compras';
                 $result = mysqli_query($conn, $query);
