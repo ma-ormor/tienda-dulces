@@ -13,7 +13,7 @@
                 if(($host = getenv("HOST")) !== false) 
                     $host = 'localhost';
                 if(($password = getenv("DB_PASS")) !== false) 
-                    $password = '';
+                    $password = ''; 
 
                 $conn = mysqli_connect($host, 'root', $password, "tienda_dulces");
 
