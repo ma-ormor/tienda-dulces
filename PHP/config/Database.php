@@ -8,10 +8,10 @@
     private $conn;
 
     function __construct(){
-      if(($host = getenv("HOST")) !== false) 
-        $host = 'localhost';
-      if(($password = getenv("DB_PASS")) !== false) 
-        $password = '';
+      if(($this->host = getenv("HOST")) !== false) 
+        $this->host = 'localhost';
+      if(($this->password = getenv("DB_PASS")) !== false) 
+        $this->password = '';
     }
 
     // DB Connect
