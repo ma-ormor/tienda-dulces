@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  rest-api:
+  spring-java:
     # build: .
     image: maormor/tienda-dulces:v2
     ports:
@@ -12,8 +12,8 @@ services:
       spring.datasource.url: jdbc:mysql://mysql:3306/tienda_dulces
       spring.datasource.password: pass
       
-  carrito-compras: # Pendiente
-    image: maormor/carrito-compras:v1
+  php:
+    image: maormor/tienda-dulces-php:v1
     ports:
       - 8081:80
     depends_on:
