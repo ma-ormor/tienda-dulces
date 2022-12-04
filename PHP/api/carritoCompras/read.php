@@ -36,7 +36,9 @@
       $carrito_compras_item = array(
         'u_clave' => $u_clave,
         'p_clave' => $p_clave,
-        'p_cantidad' => $p_cantidad
+        'p_nombre' => $p_nombre,
+        'p_cantidad' => $p_cantidad,
+        'p_costo' => $p_costo 
       );
 
       // Push to "data"
