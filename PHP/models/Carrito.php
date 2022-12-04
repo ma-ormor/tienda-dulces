@@ -3,6 +3,7 @@
     // DB stuff
     private $conn;
     private $table = 'carrito_compras';
+    private $table2 = 'producto';
 
     // Materias Properties
     public $u_clave;
@@ -18,7 +19,7 @@
     // Get Materias
     public function read() {
       // Create query
-      $query = 'SELECT *  FROM ' . $this->table;
+      $query = "SELECT *  FROM  carrito_compras INNER JOIN producto ON carrito_compras.p_clave = producto.p_clave";
       
       // Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -31,7 +32,7 @@
 
     public function read_single(){
       //Create query
-      $query = 'SELECT * FROM `carrito_compras` WHERE u_clave = ?;';
+      $query = 'SELECT * FROM `carrito_compras` INNER JOIN producto ON carrito_compras.p_clave = producto.p_clave WHERE u_clave = ?;';
 
       //Prepare statement
       $stmt = $this->conn->prepare($query);
